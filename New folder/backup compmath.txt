@@ -1,0 +1,40 @@
+#Aryan Dangol
+#2329477
+import numpy as np# importing libraries
+print("Hello")
+print("Enter values for 3*3 matirx")
+print()
+#Creating a temporary 3*3 matrix of value 5
+def creating_matrix():
+  outer=[] #outer list
+  
+  for i in range(0,3): # creating 3 inner list
+    inner=[]
+    for l in range(0,3):#add value 5 inside inner list creating 3 column
+     inner.append(5)
+    outer.append(inner);#add 3 inner list inside outer list so it becomes 3*3 matrix
+  abc=outer #storing temporary matrix in variable abc
+ 
+  count=0 #initializing the value of count as 0, to count the number 
+  for j in range(0,3): # this loop is for row, it goes through 3 rows in the matrix
+    
+    for k in range(0,3):#this loop is for column, it goes through  3 column in the matrix
+      
+      values=int(input(f"Enter a{j+1}{k+1}: "))# takes values for the matrix from the user
+      abc[j][k]=values # replace the value of abc matrix with the values assign by the user
+
+      if abc[j][k]==10 or abc[j][k]>10: #checks  is values in the matrix is => than 10
+        count=count+1 #count increases if condition is true
+  matrixA=np.array(abc) # creating matrix using numpy
+  print("MatrixA= ")
+  print(matrixA)# printing the matrix
+  matrixB=np.dot(matrixA,matrixA) # multiplying the matrix
+  print("MatrixA*MatrixA= ")
+  print(matrixB) # printing the matrix after multiplication(A*A)
+  matricC=np.dot(matrixB,matrixA) # multiplying matrix
+  print("matrixA*matrixA*matrixA= ")
+  print(matricC)#printing the matrix after multiplication(A*A*A)
+  det= np.linalg.det(matrixA)#calculating determiunant
+  print("determinant= ",det);
+  print("Number of values In matrixA  that >=10 is: ",count)#Dislaying the number of values greater than or equal to 10
+creating_matrix()
